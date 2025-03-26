@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 224 64.3% 32.9%;
+  }
+
+  :root[data-theme="dark"] {
+    --background: 222.2 84% 4.9%;
+    --foreground: 0 0% 100%;
+    --primary: 217.2 91.2% 59.8%;
+  }
+
+  body {
+    @apply transition-colors duration-300;
+  }
+
+  body[data-theme="dark"] {
+    background: linear-gradient(to bottom right, #1a1a2e, #16213e, #0f3460);
+    color: #e2e8f0;
+  }
+
+  body[data-theme="light"] {
+    background: linear-gradient(to bottom right, #ffffff, #f8fafc, #f1f5f9);
+    color: #1f2937;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-lg border shadow-xl transition-colors duration-300;
+  }
+  
+  .glass-card[data-theme="dark"] {
+    @apply bg-white/10 border-white/20;
+  }
+
+  .glass-card[data-theme="light"] {
+    @apply bg-white border-gray-200;
+  }
+  
+  .hover-card {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+}
